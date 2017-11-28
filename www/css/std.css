@@ -1,0 +1,36 @@
+@charset "utf-8"; /* Standard CSS für die Website von Zora Volantes  */  
+
+body { 
+}
+
+#holder { 
+width: 960px; 
+background-color: #FFF; 
+margin: 		25px auto 0px auto; 
+}  
+
+#header { 
+background-color: 	transparent; /*#FFF; */ 
+margin: 		0%; 
+padding:		0%; 
+padding:		0%; 
+}  
+
+
+
+p { line-height:	130%; }  
+
+
+.bild_left{
+	display: block;
+	float: left;
+	margin: 1% 1% 1% 1%;
+}
+
+.bild_right{
+	display: block;
+	float: right;
+	margin: 1% 1% 1% 1%;
+}
+
+.brclear { clear: both; height: 0; margin: 0; font-size: 1px; line-height: 0px; }  
