@@ -16,9 +16,11 @@ padding:		0%;
 padding:		0%; 
 }  
 
+ 
 
-
-p { line-height:	130%; }  
+article {
+	counter-reset: footnotes;
+}
 
 
 .bild_left{
@@ -34,3 +36,38 @@ p { line-height:	130%; }
 }
 
 .brclear { clear: both; height: 0; margin: 0; font-size: 1px; line-height: 0px; }  
+
+
+
+[aria-describedby="footnote-label"] {
+	counter-increment: footnotes;
+	text-decoration: none;
+	color: inherit;
+	cursor: default;
+	outline: none;
+}
+
+[aria-describedby="footnote-label"]::after {
+	content: '[' counter(footnotes) ']';
+	vertical-align: super;
+	font-size: 0.5em;
+	margin-left: 2px;
+	color: blue;
+	text-decoration: underline cursor: pointer;
+}
+
+[aria-describedby="footnote-label"]:focus::after {
+	outline: thin dotted;
+	outline-offset: 2px;
+}
+
+[aria-label="Back to content"] {
+	font-size: 0.8em;
+}
+
+.visually-hidden {
+	position: absolute;
+	clip: rect(0 0 0 0);
+	visibility: hidden;
+	opacity: 0;
+}
