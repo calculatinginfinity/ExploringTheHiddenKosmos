@@ -85,7 +85,7 @@
                   <!--h4 class="text-bold">62 Vorträge an der Universität, 16 Vorträge an der Sing-Akademie</h4-->
                   <h4 class="text-bold">Universitäts- und öffentliche Vorträge</h4>
 
-                  <p>Alexander von Humboldt hinterließ kein offizielles Skript zu den Vorlesungen, aus denen er seine späteren Kosmos Bücher entwickelte. Lediglich Nachschriften der Zuhörer ermöglichen einen Einblick in die Vielfalt der Vorlesungsthemen. 10 Nachschriften der 62 Universitätsvorlesungen und der 13 öffentlichen Vorlesungen wurden von dem Projekt "Hidden Kosmos" der Humboldt-Universität digitalisiert und im Deutschen Textarchiv unter einer freien Lizenz veröffentlicht. 
+                  <p>Alexander von Humboldt hinterließ kein offizielles Skript zu den Vorlesungen, aus denen er seine späteren Kosmos Bücher entwickelte. Lediglich Nachschriften der Zuhörer ermöglichen einen Einblick in die Vielfalt der Vorlesungsthemen. 10 Nachschriften der 62 Universitäts- und der 13 öffentlichen Vorlesungen wurden von dem Projekt "Hidden Kosmos" der Humboldt-Universität digitalisiert und im Deutschen Textarchiv unter einer freien Lizenz veröffentlicht. 
                   </p>
                 </div>
               </div>
@@ -137,38 +137,33 @@
                   <h2 class="section-heading animated" data-animation="bounceInUp">Die Kosmos-Vorlesungen</h2>
                   <p>Übersicht über die einzelnen Mitschriften der Kosmosvorlesungen der unterschiedlichen Autoren. Nicht jeder Autor hat jeweils alle Vorlesungen mitgeschrieben.</p>
                 </div>
+                <p>
+                  <form name="academy">
+                    <div class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-secondary active">
+                        <input type="radio" name="lectureplace" id="whichacademy" value="true" autocomplete="off" checked>Vorlesungen Universität
+                      </label>
+                      <label class="btn btn-secondary">
+                        <input type="radio" name="lectureplace" id="whichacademy" value="false" autocomplete="off">Vorlesungen Sing Akademie
+                      </label>
+                    </div>
+                 </form>
+              </p>
             </div>
         </div>
 
         <div class="table-scrollable">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">Lecture Number </th>
-                <th scope="col">Date </th>
-                <th scope="col"><a href="http://www.deutschestextarchiv.de/book/show/patzig_msgermfol841842_1828" target="_blank">Gotthilf Patzig</a>  </th>
-                  <th scope="col"><a href="http://www.deutschestextarchiv.de/book/show/libelt_hs6623ii_1828" target="_blank">Karol Libelt</a>  </th>
-                <th scope="col"><a href="http://www.deutschestextarchiv.de/book/show/nn_msgermqu2345_1827" target="_blank">Author #4 (N. N.)</a>  </th>
-                <th scope="col"><a href="http://www.deutschestextarchiv.de/book/show/nn_oktavgfeo79_1828" target="_blank">Author #5 (N. N.)</a>  </th>
-                <th scope="col"><a href="http://www.deutschestextarchiv.de/book/show/nn_n0171w1_1828" target="_blank">Author #7 (N. N.)</a>  </th>
-                <th scope="col"><a href="http://www.deutschestextarchiv.de/book/show/parthey_msgermqu1711_1828" target="_blank">Gustav Parthey</a>  </th>
-                <th scope="col"><a href="http://www.deutschestextarchiv.de/book/show/willisen_humboldt_1827" target="_blank">Friedrich Adolf von Willisen</a></th>  
-                <th scope="col"><a href="http://www.deutschestextarchiv.de/book/show/hufeland_privatbesitz_1829" target="_blank">Otto Hufeland (Sing-Akademie)</a>  </th> 
-                <th scope="col"><a href="http://www.deutschestextarchiv.de/book/show/nn_msgermqu2124_1827" target="_blank">Author #6 (N. N.) (Sing Akademie)</a>  </th>
-              </tr>
-          </thead>
-          <tbody>
 
             <script type="text/javascript">
 
               createTable();
 
             </script>
-            </tbody>
-        </table>
       </div>
-    </div>
+
+      </div>
   </section>
+
 
 
 
@@ -194,87 +189,59 @@
       </div>
 
 
-      <div class="container">
+   <div class="container">
 
       <div class="row mar-bot40">
-            <div class="col-lg-4">
-                <div class="align-center">
-                  Vorlesungsnummer: 
-                  <input type="number" id="vorlesungsnummer" value="4" min="1" max="62"> 
-                </div>
-              </div>
+        
+        <div class="col-lg-4">
+          <div class="align-left">
+            Vorlesungsnummer: <br>
+            <input type="number" id="vorlesungsnummer" value="4" min="1" max="62"> 
+          </div>
+        </div>
           
 
-            <div class="col-lg-4">
-              <div class="align-left">
-                  <div class="dropdown">
-<!--                    <i>Auswahl erster Autor</i>           
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              bitte wählen   
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Patzig</a><br>
-                  <a class="dropdown-item" href="#">Hufeland</a><br>
-                  <a class="dropdown-item" href="#">Libelt</a><br>
-                  <a class="dropdown-item" href="#">Author #4</a><br>
-                  <a class="dropdown-item" href="#">Author #5</a><br>
-                  <a class="dropdown-item" href="#">Author #6</a><br>
-                  <a class="dropdown-item" href="#">Author #7</a><br>
-                  <a class="dropdown-item" href="#">Parthey</a><br>
-                  <a class="dropdown-item" href="#">von Willisen</a>
-              </div>
+        <div class="col-lg-4">
+          <div class="align-left">
+            
+            Auswahl erster Autor:<br>
+            <select class="selectpicker" id="1">
+
+               <option value="patzig">Patzig</option>
+               <option value="libelt">Libelt</option>
+               <option value="author4nn">Author #4 (N. N.)</option>
+               <option value="willisen">Willisen</option>
+              
+            </select>
+
+          </div>
+        </div>
 
 
--->             
-              <form name="ChoiceAuthor1">
-                 Auswahl: 1. Autor<br>
-                  <label><input type="radio" name="Author1" value="patzig"> <span id="patzig">Patzig</span></label><br>
-                  <label><input type="radio" name="Author1" value="libelt"> <span id="libelt">Libelt</span></label><br>
-                  <label><input type="radio" name="Author1" value="author4nn" checked> <span id="author4nn">Author #4 (N. N.)</span></label><br>
-                  <label><input type="radio" name="Author1" value="willisen"> <span id="hort">Willisen</span></label>
-              </form>
+        <div class="col-lg-4">
+          <div class="align-left">
+            
+            Auswahl zweiter Autor:<br>
+            <select class="selectpicker" id="2">
 
-            </div>
-                </div>
-            </div>
+               <option value="patzig">Patzig</option>
+               <option value="libelt">Libelt</option>
+               <option value="author4nn">Author #4 (N. N.)</option>
+               <option value="willisen">Willisen</option>
+              
+            </select>
 
-            <div class="col-lg-4">
-              <div class="align-left">
-                  <div class="dropdown">
-<!--                    <i>Auswahl zweiter Autor</i>
-                
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              bitte wählen    
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Patzig</a><br>
-                  <a class="dropdown-item" href="#">Hufeland</a><br>
-                  <a class="dropdown-item" href="#">Libelt</a><br>
-                  <a class="dropdown-item" href="#">Author #4</a><br>
-                  <a class="dropdown-item" href="#">Author #5</a><br>
-                  <a class="dropdown-item" href="#">Author #6</a><br>
-                  <a class="dropdown-item" href="#">Author #7</a><br>
-                  <a class="dropdown-item" href="#">Parthey</a><br>
-                  <a class="dropdown-item" href="#">von Willisen</a>
-                </div>
--->               
-              <form name="ChoiceAuthor2">
-                 Auswahl: 2. Autor<br>
-                  <label><input type="radio" name="Author2" value="patzig"> <span id="patzig">Patzig</span></label><br>
-                  <label><input type="radio" name="Author2" value="libelt" > <span id="libelt">Libelt</span></label><br>
-                  <label><input type="radio" name="Author2" value="author4nn"> <span id="author4nn">Author #4 (N. N.)</span></label><br>
-                  <label><input type="radio" name="Author2" value="willisen" checked> <span id="hort">Willisen</span></label>
-              </form>
-
-            </div>
-                </div>
-            </div>
-
+          </div>
         </div>
       </div>
+      
+    </div>
+
+
+
 
       <div class="container">
-        <div class="table-scrollable"> 
+        <div class="table-scrollable2"> 
         <table class="table table-striped">
           <thead>
               <tr> 
@@ -318,6 +285,7 @@
                 <p>
                   <p>(Links öffnen jeweils im neuen Fenster)</p>
                   <ul>
+                    <li><a href="https://de.wikipedia.org/wiki/Sabrina_(Azoren)" target="_blank">Wikipedia-Artikel über die Insel Sabrina (Azoren)</a> </li> 
                     <li><a href="./kosmosAktualisierung.html" target="_blank">Eine Aktualisierung der Kosmos-Vorträge</a> </li> 
                     <li><a href="./tillard.html" target="_blank">Captain Tillards Augenzeugenbericht (deutsch)</a> </li>
                     <li><a href="./tillard-en.html" target="_blank">Captain Tillard's account (english)</a> </li>
@@ -335,8 +303,8 @@
     <footer>
       <div class="col-md-8 mx-auto">
         <div class="container text-center">
-          <p>Dieses Projekt entstand im Rahmen von <a href="https://codingdavinci.de/" target="_blank">CodingDaVinci</a>, 2017</p>
-          <p>Mitschriften der Kosmos-Vorlesungen von: <br><a href="http://www.deutschestextarchiv.de/kosmos/codingdavinci" target="_blank">Deutsches Textarchiv, Berlin-Brandenburgische Akademie der Wissenschaften; Hidden Kosmos — Reconstructing Alexander von Humboldt's »Kosmos-Lectures«, Humboldt-Universität zu Berlin</a>, Lizenz: CC-BY<br></p>
+          <p style="margin-bottom: 25px">Dieses Projekt entstand im Rahmen von <a href="https://codingdavinci.de/" target="_blank">CodingDaVinci</a>, 2017</p>
+          <p>Mitschriften der Kosmos-Vorlesungen von: <a href="http://www.deutschestextarchiv.de/kosmos/codingdavinci" target="_blank">Deutsches Textarchiv, Berlin-Brandenburgische Akademie der Wissenschaften; Hidden Kosmos — Reconstructing Alexander von Humboldt's »Kosmos-Lectures«, Humboldt-Universität zu Berlin</a>, Lizenz: CC-BY<br></p>
         </div>
 
         <div class="container text-center">
@@ -361,9 +329,6 @@
 
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
     <!-- Custom scripts for this template -->
     <script src="js/grayscale.min.js"></script>
