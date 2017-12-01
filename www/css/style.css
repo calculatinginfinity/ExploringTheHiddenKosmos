@@ -1,6 +1,8 @@
 
 table { /* Styling der Tabelle */ }
 
+
+
 .table-scrollable {
   width: 100%;
   overflow-y: auto;
@@ -18,3 +20,27 @@ table { /* Styling der Tabelle */ }
   border: 3px solid #fff;
   background-color: rgba(0, 0, 0, .3);
 }
+
+
+.table-scrollable2 {
+  width: 100%;
+  overflow-y: auto;
+  margin: 0 0 1em;
+  border: 1px solid;
+}
+
+.table-scrollable2::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+}
+
+.table-scrollable2::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 3px solid #fff;
+  background-color: rgba(0, 0, 0, .3);
+}
+
+
+
+
