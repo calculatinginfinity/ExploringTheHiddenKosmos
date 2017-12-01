@@ -31,7 +31,6 @@ $( document ).ready(function() {
 	$('input[id="whichacademy"]').on('change', function() 
 	{
 		createTable();
-		console.log(radioWert(document.academy.lectureplace));
 	});
 
 
@@ -51,42 +50,25 @@ $( document ).ready(function() {
 
 /*
  * Gibt eine Tabelle auf dem Bildschirm aus, die auflistet, welcher Autor welche der Vorlesungen mitgeschrieben hat.
+ * Es wird jeweils unterschieden, ob die Tablelle die Vorlesungen an der Universität oder an der Sing Akademie ausgeben soll
  */
 function createTable()
 {
-
-
-	//
-
-	console.log("createTable");
-	
 
 	var isUniversity = (radioWert(document.academy.lectureplace) == 'true');
 
 
 	if (isUniversity)
 	{
-		//$( ".table-scrollable" ).remove();
 		$( ".ueberelement" ).remove();
 		createTableUniversity();
-		//$( ".testdiv" ).append("<h3>DAS IST EIN TEST</h3>");
-
 	}
 	else
 	{
-		//$( ".table table-striped" ).remove();
-		//$( ".row mar-bot40" ).append("div class='table-scrollable'></div>");
-		//$( ".table-scrollable" ).remove();
-		//createTableSingAcademy();
-		
-$( ".ueberelement" ).remove();
-createTableSingAcademy();
-
+		$( ".ueberelement" ).remove();
+		createTableSingAcademy();
 	}
-
-
-	
-	
+		
 }
 
 
@@ -271,7 +253,7 @@ function createTableSingAcademy()
 	var vorlesungenParthey = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62];
 	var vorlesungenWillisen = [3,4,5,49];
 
-	var lectureDates = ["03.11.1827", "07.11.1827", "10.11.1827", "14.11.1827", "17.11.1827", "21.11.1827", "24.11.1827", "28.11.1827", "01.12.1827", "05.12.1827", "08.12.1827", "12.12.1827", "15.12.1827", "20.12.1827", "22.12.1827", "29.12.1827", "02.01.1828", "05.01.1828", "09.10.1828", "12.01.1828", "16.01.1828", "19.01.1828", "23.01.1828", "26.01.1828", "30.01.1828", "01.02.1828", "06.02.1828", "09.02.1828", "13.02.1828", "16.02.1828", "20.02.1828", "23.02.1828", "27.02.1828", "01.03.1828", "05.03.1828", "08.03.1828", "12.03.1828", "15.03.1828", "19.03.1828", "22.03.1828", "24.03.1828", "25.03.1828", "26.03.1828", "28.03.1828", "29.03.1828", "31.03.1828", "01.04.1828", "02.04.1828", "09.04.1828", "10.04.1828", "11.04.1828", "14.04.1828", "15.04.1828", "16.04.1828", "17.04.1828", "19.04.1828", "21.04.1828", "22.04.1828", "23.04.1828", "24.04.1828", "25.04.1828", "26.04.1828"];
+	var lectureDates = ["06.12.1827", "13.12.1827", "20.12.1827", "03.01.1828", "10.01.1828", "17.01.1828", "24.01.1828", "31.01.1828", "07,02.1828", "14.02.1828", "21.02,1828", "28.02.1828", "06.03.1828", "13.03.1828", "20.03.1828", "27.03.1828"];
 
 	//Sing-Acadeky
 	var vorlesungenHufeland = [1,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
@@ -288,7 +270,7 @@ function createTableSingAcademy()
 	for (i = 1; i<=16; i++)
 	{
 
-		outputString = outputString + '<tr> <th scope="row">' + i + '</th> <td>' + "???" + '</td>';
+		outputString = outputString + '<tr> <th scope="row">' + i + '</th> <td>' + lectureDates[i-1] + '</td>';
 	
 
 
@@ -313,14 +295,7 @@ function createTableSingAcademy()
 	}
 	
 		outputString = outputString + "</tr>";
-
-/*		
-		document.write(tableHeadString);
-		document.write(tableBodyString);
-		document.write(outputString);
-		document.write("</tbody></table>");
- */       
-	
+     	
 		$( ".table-scrollable" ).append(tableHeadString + tableBodyString + outputString + "</tbody></table></div>" );
 
 	
@@ -336,10 +311,6 @@ function updateLectures()
 {
 
 	var lectureNumber = document.getElementById("vorlesungsnummer").value
-
-	//Werte aus dem Web-Formular auslesen
-	//var author1 = radioWert(document.ChoiceAuthor1.Author1);
-	//var author2 = radioWert(document.ChoiceAuthor2.Author2);
 
 	var author1 = $('.selectpicker[id="1"]').find("option:selected").val();   
 	var author2 = $('.selectpicker[id="2"]').find("option:selected").val();   
@@ -372,6 +343,14 @@ function updateLectures()
 			break;
 		case "author4nn":
 			xhttp.open("GET", "xml/autor-nn-4.xml", true);
+			xhttp.send();
+			break;
+		case "author5nn":
+			xhttp.open("GET", "xml/author5_nn_oktavgfeo79_1828.xml", true);
+			xhttp.send();
+			break;
+		case "author7nn":
+			xhttp.open("GET", "xml/author7nn_n0171w1_1828.xml", true);
 			xhttp.send();
 			break;
 		default: 
@@ -413,6 +392,14 @@ function updateLectures()
 			break;
 		case "author4nn":
 			xhttp.open("GET", "xml/autor-nn-4.xml", true);
+			xhttp.send();
+			break;
+		case "author5nn":
+			xhttp.open("GET", "xml/author5_nn_oktavgfeo79_1828.xml", true);
+			xhttp.send();
+			break;
+		case "author7nn":
+			xhttp.open("GET", "xml/author7nn_n0171w1_1828.xml", true);
 			xhttp.send();
 			break;
 		default: 
