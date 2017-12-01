@@ -77,9 +77,6 @@ function createTable()
 function createTableUniversity()
 {
 
-
-	console.log("createTableUniversity");
-
 	//Kopfzeile der Tabelle aufsetzen:
      
     var tableHeadString = "";
@@ -105,9 +102,8 @@ function createTableUniversity()
     
 
 
-	console.log("Table2")
 
-	//University
+	//University Lectures
 	var vorlesungenPatzig = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62];
 	var vorlesungenLibelt = [23,24,25,26,27,28,29,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62];
 	var vorlesungenAutor4NN = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62];
@@ -232,8 +228,8 @@ function createTableSingAcademy()
     tableHeadString = tableHeadString + '<tr>';
     tableHeadString = tableHeadString + '<th scope="col">Vorlesungsnummer</th>';
     tableHeadString = tableHeadString + '<th scope="col">Datum</th>';
-    tableHeadString = tableHeadString + '<th scope="col"><a href="http://www.deutschestextarchiv.de/book/show/parthey_msgermqu1711_1828" target="_blank">Otto Hufeland</a>  </th>';
-    tableHeadString = tableHeadString + '<th scope="col"><a href="http://www.deutschestextarchiv.de/book/show/willisen_humboldt_1827" target="_blank">Author #6 (N.N.)</a></th>';
+    tableHeadString = tableHeadString + '<th scope="col"><a href="http://www.deutschestextarchiv.de/book/show/hufeland_privatbesitz_1829" target="_blank">Otto Hufeland</a>  </th>';
+    tableHeadString = tableHeadString + '<th scope="col"><a href="http://www.deutschestextarchiv.de/book/show/nn_msgermqu2124_1827" target="_blank">Author #6 (N.N.)</a></th>';
     tableHeadString = tableHeadString + '</tr>';
     tableHeadString = tableHeadString + '</thead>';
 
@@ -253,11 +249,11 @@ function createTableSingAcademy()
 	var vorlesungenParthey = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62];
 	var vorlesungenWillisen = [3,4,5,49];
 
-	var lectureDates = ["06.12.1827", "13.12.1827", "20.12.1827", "03.01.1828", "10.01.1828", "17.01.1828", "24.01.1828", "31.01.1828", "07,02.1828", "14.02.1828", "21.02,1828", "28.02.1828", "06.03.1828", "13.03.1828", "20.03.1828", "27.03.1828"];
+	var lectureDates = ["06.12.1827", "13.12.1827", "20.12.1827", "03.01.1828", "10.01.1828", "17.01.1828", "24.01.1828", "31.01.1828", "07.02.1828", "14.02.1828", "21.02.1828", "28.02.1828", "06.03.1828", "13.03.1828", "20.03.1828", "27.03.1828"];
 
 	//Sing-Acadeky
-	var vorlesungenHufeland = [1,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
-	var vorlesungenAutor6NN = [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+	var vorlesungenHufeland = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+	var vorlesungenAutor6NN = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
 
 	//console.log(radioWert(document.academy.lectureplace));
 
@@ -310,10 +306,14 @@ function createTableSingAcademy()
 function updateLectures()
 {
 
+	//Formulareingaben auslesen
 	var lectureNumber = document.getElementById("vorlesungsnummer").value
-
 	var author1 = $('.selectpicker[id="1"]').find("option:selected").val();   
 	var author2 = $('.selectpicker[id="2"]').find("option:selected").val();   
+
+	//Autorennamen im HTML-Dokument über der Tabelle anzeigen
+	document.getElementById("fieldauthor1").innerHTML = author1;
+	document.getElementById("fieldauthor2").innerHTML = author2;
 
 
 	//Mitschrift vom 1. Autor auslesen
@@ -327,29 +327,31 @@ function updateLectures()
 	};
 
 
+
+
 	switch(author1)
 	{
-		case "patzig": 
+		case "Gotthilf Patzig": 
 			xhttp.open("GET", "xml/patzig.xml", true);
 			xhttp.send();
 			break;
-		case "libelt":
+		case "Karol Libelt":
 			xhttp.open("GET", "xml/libelt.xml", true);
 			xhttp.send();
 			break;
-		case "willisen":
+		case "Friedrich von Willisen":
 			xhttp.open("GET", "xml/willisen.xml", true);
 			xhttp.send();
 			break;
-		case "author4nn":
+		case "Author #4 (N. N.)":
 			xhttp.open("GET", "xml/autor-nn-4.xml", true);
 			xhttp.send();
 			break;
-		case "author5nn":
+		case "Author #5 (N. N.)":
 			xhttp.open("GET", "xml/author5_nn_oktavgfeo79_1828.xml", true);
 			xhttp.send();
 			break;
-		case "author7nn":
+		case "Author #7 (N. N.)":
 			xhttp.open("GET", "xml/author7nn_n0171w1_1828.xml", true);
 			xhttp.send();
 			break;
@@ -378,27 +380,27 @@ function updateLectures()
 
 	switch(author2)
 	{
-		case "patzig": 
+		case "Gotthilf Patzig": 
 			xhttp.open("GET", "xml/patzig.xml", true);
 			xhttp.send();
 			break;
-		case "libelt":
+		case "Karol Libelt":
 			xhttp.open("GET", "xml/libelt.xml", true);
 			xhttp.send();
 			break;
-		case "willisen":
+		case "Friedrich von Willisen":
 			xhttp.open("GET", "xml/willisen.xml", true);
 			xhttp.send();
 			break;
-		case "author4nn":
+		case "Author #4 (N. N.)":
 			xhttp.open("GET", "xml/autor-nn-4.xml", true);
 			xhttp.send();
 			break;
-		case "author5nn":
+		case "Author #5 (N. N.)":
 			xhttp.open("GET", "xml/author5_nn_oktavgfeo79_1828.xml", true);
 			xhttp.send();
 			break;
-		case "author7nn":
+		case "Author #7 (N. N.)":
 			xhttp.open("GET", "xml/author7nn_n0171w1_1828.xml", true);
 			xhttp.send();
 			break;
@@ -441,6 +443,7 @@ function getLecture(xml, vorlesungsnummer, ausgabefeld)
 	}
 
 	document.getElementById(ausgabefeld).innerHTML = output;
+
 }
 
 
