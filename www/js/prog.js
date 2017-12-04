@@ -10,11 +10,13 @@ $( document ).ready(function() {
 		updateLectures();
 	});
 
-
+/*
 	$('input[id="vorlesungsnummer"]').on('mousedown', function()
 	{
 		updateLectures();
 	});
+*/
+
 
 	$('input[id="vorlesungsnummer"]').on('change', function() 
 	{
@@ -198,16 +200,9 @@ function createTableUniversity()
 
 	}
 
-		outputString = outputString + "</tr>";
+	outputString = outputString + "</tr>";
 
-/*		
-		document.write(tableHeadString);
-		document.write(tableBodyString);
-		document.write(outputString);
-		document.write("</tbody></table>");
- */       
-	
-		$( ".table-scrollable" ).append(tableHeadString + tableBodyString + outputString + "</tbody></table></div>" );
+	$( ".table-scrollable" ).append(tableHeadString + tableBodyString + outputString + "</tbody></table></div>" );
 
 	
 }
@@ -238,7 +233,6 @@ function createTableSingAcademy()
     
 
 
-	console.log("Table2")
 
 	//University
 	var vorlesungenPatzig = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62];
@@ -332,19 +326,19 @@ function updateLectures()
 	switch(author1)
 	{
 		case "Gotthilf Patzig": 
-			xhttp.open("GET", "xml/patzig.xml", true);
+			xhttp.open("GET", "xml/author-patzig_msgermfol841842_1828.TEI-P5.xml", true);
 			xhttp.send();
 			break;
 		case "Karol Libelt":
-			xhttp.open("GET", "xml/libelt.xml", true);
+			xhttp.open("GET", "xml/author-libelt_hs6623ii_1828.TEI-P5.xml", true);
 			xhttp.send();
 			break;
 		case "Friedrich von Willisen":
-			xhttp.open("GET", "xml/willisen.xml", true);
+			xhttp.open("GET", "xml/author-willisen_humboldt_1827.TEI-P5.xml", true);
 			xhttp.send();
 			break;
 		case "Author #4 (N. N.)":
-			xhttp.open("GET", "xml/autor-nn-4.xml", true);
+			xhttp.open("GET", "xml/author4-nn_msgermqu2345_1827.xml", true);
 			xhttp.send();
 			break;
 		case "Author #5 (N. N.)":
@@ -353,6 +347,10 @@ function updateLectures()
 			break;
 		case "Author #7 (N. N.)":
 			xhttp.open("GET", "xml/author7nn_n0171w1_1828.xml", true);
+			xhttp.send();
+			break;
+		case "Gustav Parthey": 
+			xhttp.open("GET", "xml/author-parthey_msgermqu1711_1828.TEI-P5.xml", true);
 			xhttp.send();
 			break;
 		default: 
@@ -381,19 +379,19 @@ function updateLectures()
 	switch(author2)
 	{
 		case "Gotthilf Patzig": 
-			xhttp.open("GET", "xml/patzig.xml", true);
+			xhttp.open("GET", "xml/author-patzig_msgermfol841842_1828.TEI-P5.xml", true);
 			xhttp.send();
 			break;
 		case "Karol Libelt":
-			xhttp.open("GET", "xml/libelt.xml", true);
+			xhttp.open("GET", "xml/author-libelt_hs6623ii_1828.TEI-P5.xml", true);
 			xhttp.send();
 			break;
 		case "Friedrich von Willisen":
-			xhttp.open("GET", "xml/willisen.xml", true);
+			xhttp.open("GET", "xml/author-willisen_humboldt_1827.TEI-P5.xml", true);
 			xhttp.send();
 			break;
 		case "Author #4 (N. N.)":
-			xhttp.open("GET", "xml/autor-nn-4.xml", true);
+			xhttp.open("GET", "xml/author4-nn_msgermqu2345_1827.xml", true);
 			xhttp.send();
 			break;
 		case "Author #5 (N. N.)":
@@ -402,6 +400,9 @@ function updateLectures()
 			break;
 		case "Author #7 (N. N.)":
 			xhttp.open("GET", "xml/author7nn_n0171w1_1828.xml", true);
+			xhttp.send();
+		case "Gustav Parthey": 
+			xhttp.open("GET", "xml/author-parthey_msgermqu1711_1828.TEI-P5.xml", true);
 			xhttp.send();
 			break;
 		default: 
@@ -419,30 +420,29 @@ function updateLectures()
 
 //Funktion liefert den Text einer bestimmten Vorlesung eines gegeben Autors zurück
 //Input-Paramter: Autor, Vorlesungsnummer, wo der Text ausgegeben werden soll
-function getLecture(xml, vorlesungsnummer, ausgabefeld) 
+function getLecture(xml, vorlesungsnummer, ausgabefeld)
 {
 
-	var xmlData = xml.responseXML;	    			
-	var output ="";
+	var xmlData = xml.responseXML;
+	var outputString = "";
 
-	var anzahlAnsätze = xmlData.getElementsByTagName("vorlesungen")[0].getElementsByTagName("vorlesung")[vorlesungsnummer-1].getElementsByTagName("p").length;
+	var children = xmlData.getElementsByTagName("vorlesungen")[0].getElementsByTagName("vorlesung")[vorlesungsnummer-1].childNodes;
+ 	var noOfChildren = xmlData.getElementsByTagName("vorlesungen")[0].getElementsByTagName("vorlesung")[vorlesungsnummer-1].childNodes.length;
 
-
-	for (i = 0; i<anzahlAnsätze; i++)
+	for (i = 1; i<noOfChildren; i=i+2)
 	{
-
-		//console.log(xmlData.getElementsByTagName("vorlesungen")[0].getElementsByTagName("vorlesung")[vorlesungsnummer].getElementsByTagName("p")[i].childNodes[0].nodeValue);
-
-		output = output + "<p>" + xmlData.getElementsByTagName("vorlesungen")[0].getElementsByTagName("vorlesung")[vorlesungsnummer-1].getElementsByTagName("p")[i].childNodes[0].nodeValue + "</p>";
-
+		//console.log(Kinder[i].innerHTML);
+		outputString = outputString + "<p>" + children[i].innerHTML + "<p>"; 
 	}
 
-	if (output.length == 0)
-	{
-		output = "<i>[leider keine Nachschrift vorhanden]</i>";
-	}
 
-	document.getElementById(ausgabefeld).innerHTML = output;
+	if (outputString.length == 0)
+	{
+		outputString = "<p><i>[leider keine Nachschrift dieser Vorlesung vorhanden]</i></p>";
+	}
+	
+
+	document.getElementById(ausgabefeld).innerHTML = outputString;
 
 }
 
