@@ -1,22 +1,5 @@
-@charset "utf-8"; /* Standard CSS für die Website von Zora Volantes  */  
+@charset "utf-8"; /* Standard CSS  for footnotes*/  
 
-body { 
-}
-
-#holder { 
-width: 960px; 
-background-color: #FFF; 
-margin: 		25px auto 0px auto; 
-}  
-
-#header { 
-background-color: 	transparent; /*#FFF; */ 
-margin: 		0%; 
-padding:		0%; 
-padding:		0%; 
-}  
-
- 
 
 article {
 	counter-reset: footnotes;
@@ -39,7 +22,7 @@ article {
 
 
 
-[aria-describedby="footnote-label"] {
+a[aria-describedby="footnote-label"] {
 	counter-increment: footnotes;
 	text-decoration: none;
 	color: inherit;
@@ -47,7 +30,7 @@ article {
 	outline: none;
 }
 
-[aria-describedby="footnote-label"]::after {
+a[aria-describedby="footnote-label"]::after {
 	content: '[' counter(footnotes) ']';
 	vertical-align: super;
 	font-size: 0.5em;
@@ -56,12 +39,12 @@ article {
 	text-decoration: underline cursor: pointer;
 }
 
-[aria-describedby="footnote-label"]:focus::after {
+a[aria-describedby="footnote-label"]:focus::after {
 	outline: thin dotted;
 	outline-offset: 2px;
 }
 
-[aria-label="Back to content"] {
+a[aria-label="Back to content"] {
 	font-size: 0.8em;
 }
 
